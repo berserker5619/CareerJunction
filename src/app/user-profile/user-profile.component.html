@@ -1,0 +1,167 @@
+<div class="container">
+    <h2>Job Seeker Dashboard
+      <div class="float-right">
+        <a class="btn btn-dark" [routerLink]="['/update-details/'+user._id]"><i class="fi-xwsuxl-pen"></i>Update Account</a>&nbsp;
+        <button class="btn btn-danger" (click)="deleteAccount(user._id)"><i class="fi-xnsuxl-trash-bin"></i>Delete Account</button>
+      </div>
+    </h2>
+  <hr>
+  <div class="row">
+    <div class="col-md-3">
+        <ul class="nav nav-pills flex-column" id="myTab" role="tablist" style="background-color: rgb(224, 235, 238);">
+  <li class="nav-item">
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Personal Details</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Employment Details</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Education Details</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="appliedJobs-tab" data-toggle="tab" href="#applied" role="tab" aria-controls="applied" aria-selected="false">Applied Jobs</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="savedJobs-tab" data-toggle="tab" href="#saved" role="tab" aria-controls="saved" aria-selected="false">Saved Jobs</a>
+  </li>
+</ul>
+    </div>
+
+        <div class="col-md-9">
+      <div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+  <h4 class="card-header bg-secondary text-light"><i class="fi-xnsuxl-user-circle-solid"></i>Personal Details</h4>
+    <table class="table table-striped table-bordered">
+      <tbody>
+      <tr>
+        <th scope="row">First Name:</th>
+        <td>{{user.firstname}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Last Name:</th>
+        <td>{{user.lastname}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Email:</th>
+        <td>{{user.email}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Contact Number:</th>
+        <td>{{user.contactNumber}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Password:</th>
+        <td>{{user.password}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Address:</th>
+        <td>{{user.address}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Skills:</th>
+        <td>{{user.skills}}</td>
+      </tr>
+    </tbody>
+    </table>
+  </div>
+  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+  <h4 class="card-header bg-secondary text-light"><i class="fi-xnsuxl-user-tie-circle"></i>Employment Details</h4>
+    <table class="table table-bordered table-striped">
+      <tbody>
+        <tr *ngIf="user.currentEmployer!=''">
+          <th scope="row">Current Employer</th>
+          <td>{{user.currentEmployer}}</td>
+        </tr>
+        <tr *ngIf="user.currentDestination!=''">
+          <th scope="row">Current Destination</th>
+          <td>{{user.currentDestination}}</td>
+        </tr>
+        <tr *ngIf="user.currentJobDescription!=''">
+          <th scope="row">Current Job Description</th>
+          <td>{{user.currentJobDescription}}</td>
+        </tr>
+        <tr *ngIf="user.currentEmployer!=''">
+          <th scope="row">Current Experience</th>
+          <td>{{user.currentExperience}}</td>
+        </tr>
+        <tr *ngIf="user.previousEmployer!=''">
+          <th scope="row">Previous Employer</th>
+          <td>{{user.previousEmployer}}</td>
+        </tr>
+        <tr *ngIf="user.previousDestination!=''">
+          <th scope="row">Previous Destination</th>
+          <td>{{user.previousDestination}}</td>
+        </tr>
+        <tr *ngIf="user.previousJobDescription!=''">
+          <th scope="row">Previous Job Description</th>
+          <td>{{user.previousJobDescription}}</td>
+        </tr>
+        <tr *ngIf="user.previousEmployer!=''">
+          <th scope="row">Previous Experience</th>
+          <td>{{user.previousExperience}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+  <h4 class="card-header bg-secondary text-light"><i class="fas fa-graduation-cap"></i>Eductaion Details</h4>
+    <table class="table table-striped table-bordered">
+      <tbody>
+        <tr *ngIf="user.collegeUniversity">
+          <th scope="row">College/University</th>
+          <td>{{user.collegeUniversity}}</td>
+        </tr>
+        <tr *ngIf="user.collegePassedOutYear">
+          <th scope="row">College PassedOut Year</th>
+          <td>{{user.collegePassedOutYear}}</td>
+        </tr>
+        <tr *ngIf="user.school">
+          <th scope="row">School</th>
+          <td>{{user.school}}</td>
+        </tr>
+        <tr *ngIf="user.schoolPassedOutYear">
+          <th scope="row">School PassedOut Year</th>
+          <td>{{user.schoolPassedOutYear}}</td>
+        </tr>
+        <tr *ngIf="user.skillsQualifications">
+          <th scope="row">Skills/Qualifications</th>
+          <td>{{user.skillsQualifications}}</td>
+        </tr>
+        <tr *ngIf="user.certifications!=''">
+          <th scope="row">Certifications</th>
+          <td>{{user.certifications}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="tab-pane fade" id="saved" role="tabpanel" aria-labelledby="savedJobs-tab">
+    <h4 class="card-header bg-secondary text-light"><i class="far fa-save"></i> Saved Jobs</h4>
+    <div class="row" >
+      <div class="col-md-6 mx-max my-2" *ngFor="let job of savedJobs">
+        <h5 class="card-header">{{job.jobTitle}}</h5>
+        <div class="card-body">
+          <p><strong>Salary:</strong>{{job.salaryPackage}}</p>
+          <p><strong>Company:</strong>{{job.companyName}}</p>
+          <p><strong>Skills:</strong>{{job.skillsRequired}}</p>
+        </div>
+      </div>
+  </div>
+  </div>
+  <div class="tab-pane fade" id="applied" role="tabpanel" aria-labelledby="appliedJobs-tab">
+    <h4 class="card-header bg-secondary text-light"><i class="fas fa-check-square"></i> Applied Jobs</h4>
+    <div class="row">
+      <div class="col-md-6 mx-max my-2" *ngFor="let job of appliedJobs">
+        <h5 class="card-header">{{job.jobTitle}}</h5>
+        <div class="card-body">
+          <p><strong>Salary:</strong>{{job.salaryPackage}}</p>
+          <p><strong>Company:</strong>{{job.companyName}}</p>
+          <p><strong>Skills:</strong>{{job.skillsRequired}}</p>
+        </div>
+      </div>
+  </div>
+</div>
+</div>
+    </div>
+  </div>  
+</div>
+<br>

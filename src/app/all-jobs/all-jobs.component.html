@@ -1,0 +1,33 @@
+<div class="bgImg">
+<br>
+<div class="playground">
+  <div class="container">
+    <div class="content">
+      <input type="search" id="searchTerm" placeholder="Enter Keyword to search">&nbsp;
+      <button class="btn btn-outline-primary" (click)="search()">Go</button>
+      &nbsp;
+      <button class="btn btn-primary" (click)="cancelSearch()">Cancel</button>
+    </div>
+  </div>
+</div>
+<br>
+<div id="main">
+  <div class="card text-center">
+    <div class="row">
+      <div class="col-md-3 mx-max my-4" *ngFor="let job of jobs|jobFilter:searchTerm">
+        <div class="card bg-light-gray mb-2">
+          <div class="card-header"><a [routerLink]="['/job-details/'+job._id]">{{job.jobTitle}}</a></div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Company:</strong>{{job.companyName}}</li>
+            <li class="list-group-item"><strong>Salary:</strong>{{job.salaryPackage|currency:'INR':true:'2.0'}}/Annum</li>
+            <li class="list-group-item"><strong>Location:</strong>{{job.location}}</li>
+            <li class="list-group-item"><strong>Posted Date:</strong>{{job.jobPostedDate|date:'mediumDate'}}</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+</div>

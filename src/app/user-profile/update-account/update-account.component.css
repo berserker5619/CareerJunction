@@ -1,0 +1,16 @@
+
+.navtop{
+    margin-top:5px;
+}
+.tab-content {
+    padding: 40px;
+    margin-top: -20px; 
+}
+.form{
+    margin-left: 20%;
+    width: 60%;
+    padding: 3%;
+    border: black;
+    border-width: 5px;
+    border-radius: 2%;
+}

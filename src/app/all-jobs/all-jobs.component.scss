@@ -1,0 +1,38 @@
+.bgImg{
+  background-image: url('../../assets/background.jpg');
+}
+
+#main {
+  transition: margin-left .5s;
+}
+.playground {
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  width: 210px;
+  height: 40px;
+
+  .content {
+    padding: 0 2px 0 2px;
+    height: 100%;
+    display: flex;
+
+    input {
+      flex: 1 1 auto;
+      margin: 0;
+      padding: 0;
+      border: none;
+      box-shadow: none;
+      height: 100%;
+    }
+  }
+}
+#main,.row,.card{
+  background-image: url('../../assets/background.jpg');
+}
+.row{
+  margin-left: 3px;
+  width: 99%;
+}

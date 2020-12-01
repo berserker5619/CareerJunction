@@ -1,0 +1,63 @@
+<div class="bgImg">
+<br>
+<div class="container">
+    <h2 class="card-header bg-secondary text-light">{{job.jobTitle}}</h2>
+    <div class="card-body">
+        <div class="row">
+            <div class="col">
+                <p><strong>Posted Date: </strong>{{job.jobPostedDate|date:'mediumDate'}}</p>
+            </div>
+            <div class="col">
+                <p><strong>Salary Package: </strong>{{job.salaryPackage|currency:'INR':true:'2.0'}} / Annum</p>
+            </div>
+        </div>
+    
+    <div class="row">
+        <div class="col">
+            <div class="jobDescription">
+                <p><strong>Job Description:</strong></p>
+                <p id="jobDsec">{{job.jobDescription}}</p>
+                <p><strong>Role:</strong></p>
+                <p>{{job.role}}</p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="responsibility">
+                <p><strong>Responsibility:</strong></p>
+                <p>{{job.responsibility}}</p>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col">
+            <p><strong>Company Name: </strong>{{job.companyName}}</p>
+            <p><strong>Industry Type: </strong>{{job.industryType}}</p>
+            <p><strong>Location: </strong>{{job.location}}</p>
+            <p><strong>Positions Available: </strong>{{job.positionsAvailable}}</p>
+        </div>
+        <div class="col">
+            <p><strong>Company Information:</strong></p>
+            <p>{{job.companyInformation}}</p>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col">
+            <h4>Eligibility Required:</h4>
+            <p><strong>Degree Required: </strong>{{job.degree}}</p>
+            <p><strong>Experience Required: </strong>{{job.experienceRequired}} Month(s)</p>
+            <p><strong>Skills Required: </strong>{{job.skillsRequired}}</p>
+        </div>
+        <div class="col">
+            <br><br>
+            <a *ngIf="!applyBtnFlag" routerLink="/" class="btn btn-outline-primary" style="margin-left: 20%;">Login to Apply</a>&nbsp;&nbsp;
+            <a *ngIf="!saveBtnFlag" routerLink="/" class="btn btn-outline-secondary">Login to Save</a>
+            <button type="button" *ngIf="applyBtnFlag"(click)="apply()" class="btn btn-outline-primary" style="margin-left: 20%;">Apply</button>&nbsp;&nbsp;
+            <button type="button" *ngIf="saveBtnFlag" (click)="save()" class="btn btn-outline-secondary">Save</button>
+        </div>
+    </div>
+</div>
+</div>
+<br>
+</div>

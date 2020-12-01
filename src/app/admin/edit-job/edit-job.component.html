@@ -1,0 +1,78 @@
+<div class="card">
+    <h4 class="card-header">Edit Job</h4>
+    <div class="card-body">
+    <form (submit)="editJob()">
+        <div class="form-group">
+          <label for="jobId">Job ID</label>
+          <input type="text" class="form-control" id="jobId" name="jobId" placeholder="" [(ngModel)]="job.jobId">
+        </div>
+        <div class="form-group">
+          <label for="jobTitle">Job Title</label>
+          <input type="text" class="form-control" id="jobTitle" name="jobTitle" placeholder="" [(ngModel)]="job.jobTitle">
+        </div>
+          <div class="form-group">
+        <label for="jobPostedDate">Job Posted Date</label>
+        <input type="date" class="form-control" id="jobPostedDate" name="jobPostedDate" placeholder=""  [(ngModel)]="job.jobPostedDate">
+      </div>
+      <div class="form-group">
+        <label for="role">Role</label>
+        <input type="text" class="form-control" id="role" name="role" placeholder="" [(ngModel)]="job.role">
+      </div>
+      <div class="form-group">
+        <label for="responsibility">Responsibility</label>
+        <textarea rows="5" class="form-control" id="responsibility" name="responsibility" placeholder="" [(ngModel)]="job.responsibility"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="companyName">Company Name</label>
+        <input type="text" class="form-control" id="companyName" name="companyName" placeholder=""  [(ngModel)]="job.companyName">
+      </div>
+      <div class="form-group">
+        <label for="experienceRequired">Experience Required in Month(s)</label>
+        <input type="number" class="form-control" id="experienceRequired" name="experienceRequired" placeholder=""  [(ngModel)]="job.experienceRequired">
+      </div>
+      <div class="form-group">
+        <label for="salaryPackage">Salary Package</label>
+        <input type="number" class="form-control" id="salaryPackage" name="salaryPackage" placeholder=""  [(ngModel)]="job.salaryPackage">
+      </div>
+      <div class="form-group">
+        <label for="positionsAvailable">Number of Positions Available</label>
+        <input type="number" class="form-control" id="positionsAvailable" name="positionsAvailable" placeholder=""  [(ngModel)]="job.positionsAvailable">
+      </div>
+      <div class="form-group">
+        <label for="location">Location</label>
+        <input type="text" class="form-control" id="location" name="location" placeholder=""  [(ngModel)]="job.location">
+      </div>
+      <div class="form-group">
+        <label for="skillsRequired">Skills Required</label>
+        <input type="text" class="form-control" id="skillsRequired" name="skillsRequired" placeholder="" [(ngModel)]="job.skillsRequired">
+      </div>
+      <div class="form-group">
+        <label for="degree">Degree(UG/PG)</label>
+        <input type="text" class="form-control" id="degree" name="degree" placeholder=""  [(ngModel)]="job.degree">
+      </div>
+      <div class="form-group">
+        <label for="companyInformation">Company Information</label>
+        <textarea rows="5" type="text" class="form-control" id="companyInformation" name="companyInformation" placeholder="" [(ngModel)]="job.companyInformation"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="employmentType">Employment Type(FullTime/PartTime)</label>
+        <input type="text" class="form-control" id="employmentType" name="companyInformation" placeholder="" [(ngModel)]="job.employmentType">
+      </div>
+      <div class="form-group">
+        <label for="industryType">Industry Type</label>
+        <input type="text" class="form-control" id="industryType" name="industryType" placeholder=""  [(ngModel)]="job.industryType">
+      </div>
+      <div class="form-group">
+        <label for="searchKeyword">Search Keyword</label>
+        <input type="text" class="form-control" id="searchKeyword" name="searchKeyword" placeholder="" [(ngModel)]="job.searchKeyword">
+      </div>
+      <div class="form-group">
+        <label for="jobDescription">Job Description</label>
+        <textarea rows="5" class="form-control" id="jobDescription" name="jobDescription" placeholder=""  [(ngModel)]="job.jobDescription"></textarea>
+      </div>
+      <button type="submit" class="btn btn-light">Update</button>&nbsp;&nbsp;&nbsp;
+      <a routerLink='/admin' class="btn btn-dark">Cancel</a>
+    </form>
+  </div>
+  </div>
+  <br>

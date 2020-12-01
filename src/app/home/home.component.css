@@ -1,0 +1,81 @@
+.bgImg{
+  background-image: url('../../assets/background.jpg');
+}
+.login-form {
+  width: 340px;
+}
+.login-form form {
+  background: #f7f7f7;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+}
+.form-control, .btn {
+  min-height: 30px;
+  border-radius: 2px;
+}
+.btn {        
+  font-size: 15px;
+  font-weight: bold;
+}
+.cta-100 {
+    padding-left: 6%;
+  }
+  .col-md-4{
+      padding-bottom:20px;
+  }
+  .white {
+    color: #fff !important;
+  }
+  .mt{float: left;margin-top: -20px;padding-top: 20px;}
+  .bg-blue-ui {
+    background-color: #708198 !important;
+  }
+  figure img{width:300px;}
+  
+  #blogCarousel {
+    padding-bottom: 100px;
+  }
+  
+  .blog .carousel-indicators {
+    left: 0;
+    height: 20%;
+  }
+  
+  .blog .carousel-indicators li {
+    background: #708198;
+    /* content: ; */
+    width: 10px;
+    height: 10px;
+  }
+  
+  .blog .carousel-indicators .active {
+    background: black;
+  }
+  
+  .item-carousel-blog-block {
+    outline: medium none;
+    padding: 15px;
+  }
+  
+  .item-box-blog {
+    border: 1px solid #dadada;
+    text-align: center;
+    z-index: 4;
+  }
+  
+  .mt-10 {
+    float: left;
+    margin-top: -10px;
+    padding-top: 10px;
+  }
+    
+  .img-fluid{
+      height: 85px;
+      width: 110px;
+  }
+  #list-group-item{
+    text-align: center;
+  }
+  #careerTips{
+    margin-bottom: 0;
+  }

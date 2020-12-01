@@ -1,0 +1,31 @@
+  
+<div id="main">
+    <button class="openbtn" (click)="openNav()">Manage</button>
+    <br>
+    <div class="card text-center">
+      <div class="card-header" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;font-size: 1.5em;background-color: grey;">All Jobs</div>
+      <div class="row">
+        <div class="col-md-3 mx-max my-4" *ngFor="let user of users" >
+          <div class="card bg-light-gray mb-2">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><strong>Name: </strong>{{user.firstname}} {{user.lastname}}</li>
+              <li class="list-group-item"><strong>Email: </strong>{{user.email}}</li>
+              <li class="list-group-item"><strong>Contact: </strong>{{user.contactNumber}}</li>
+              <li class="list-group-item"><strong>Address:</strong>{{user.address}}</li>
+              <li class="list-group-item"><strong>Password: </strong>{{user.password}}</li>
+              <li class="list-group-item">
+                <button class="btn btn-dark" (click)="deleteUser(user._id)">Delete</button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0);" class="closebtn" (click)="closeNav()">&times;</a>
+    <a routerLink="/admin" href="javascript:void(0);">All Jobs</a>
+    <a routerLink="/admin/add-jobs" href="javascript:void(0);">Add Jobs</a>
+    <a routerLink="/admin/users" href="javascript:void(0)">Manage Users</a>
+  </div>
+  <br>

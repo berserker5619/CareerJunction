@@ -1,0 +1,12 @@
+.jobDescription{
+    width: 400px;
+}
+.responsibility{
+    width:450px
+}
+.card-body{
+    background-color: #faf9f5;
+}
+.bgImg{
+    background-image: url('../../assets/background.jpg');
+  }

@@ -1,0 +1,86 @@
+<div id="main">
+  <button class="openbtn" (click)="openNav()">Manage Jobs</button>
+  <br>
+<div class="card">
+  <h4 class="card-header">Add Jobs</h4>
+  <div class="card-body">
+  <form name="addJobForm" (submit)="addJob()">
+      <div class="form-group">
+        <label for="jobId">Job ID</label>
+        <input type="text" class="form-control" id="jobId" name="jobId" placeholder="Enter JobID" [(ngModel)]="job.jobId">
+      </div>
+      <div class="form-group">
+        <label for="jobTitle">Job Title</label>
+        <input type="text" class="form-control" id="jobTitle" name="jobTitle" placeholder="Enter Job Title" [(ngModel)]="job.jobTitle">
+      </div>
+        <div class="form-group">
+      <label for="jobPostedDate">Job Posted Date</label>
+      <input type="date" class="form-control" id="jobPostedDate" name="jobPostedDate" placeholder="Enter Job Posted Date"  [(ngModel)]="job.jobPostedDate">
+    </div>
+    <div class="form-group">
+      <label for="role">Role</label>
+      <input type="text" class="form-control" id="role" name="role" placeholder="Enter Role of the Job" [(ngModel)]="job.role">
+    </div>
+    <div class="form-group">
+      <label for="responsibility">Responsibility</label>
+      <textarea rows="5" class="form-control" id="responsibility" name="responsibility" placeholder="Enter the Responsibility of the Job" [(ngModel)]="job.responsibility"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="companyName">Company Name</label>
+      <input type="text" class="form-control" id="companyName" name="companyName" placeholder="Enter Company Name"  [(ngModel)]="job.companyName">
+    </div>
+    <div class="form-group">
+      <label for="experienceRequired">Experience Required in Months(s)</label>
+      <input type="number" class="form-control" id="experienceRequired" name="experienceRequired" placeholder="Enter Experience Required"  [(ngModel)]="job.experienceRequired">
+    </div>
+    <div class="form-group">
+      <label for="salaryPackage">Salary Package</label>
+      <input type="number" class="form-control" id="salaryPackage" name="salaryPackage" placeholder="Enter Full Salary Package"  [(ngModel)]="job.salaryPackage">
+    </div>
+    <div class="form-group">
+      <label for="positionsAvailable">Number of Positions Available</label>
+      <input type="number" class="form-control" id="positionsAvailable" name="positionsAvailable" placeholder="Enter the Number of Positions Available"  [(ngModel)]="job.positionsAvailable">
+    </div>
+    <div class="form-group">
+      <label for="location">Location</label>
+      <input type="text" class="form-control" id="location" name="location" placeholder="Enter Job Location"  [(ngModel)]="job.location">
+    </div>
+    <div class="form-group">
+      <label for="skillsRequired">Skills Required</label>
+      <input type="text" class="form-control" id="skillsRequired" name="skillsRequired" placeholder="Enter Skills Required" [(ngModel)]="job.skillsRequired">
+    </div>
+    <div class="form-group">
+      <label for="degree">Degree(UG/PG)</label>
+      <input type="text" class="form-control" id="degree" name="degree" placeholder="Enter Degree Required "  [(ngModel)]="job.degree">
+    </div>
+    <div class="form-group">
+      <label for="companyInformation">Company Information</label>
+      <textarea rows="5" type="text" class="form-control" id="companyInformation" name="companyInformation" placeholder="Enter Company Information" [(ngModel)]="job.companyInformation"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="employmentType">Employment Type(FullTime/PartTime)</label>
+      <input type="text" class="form-control" id="employmentType" name="companyInformation" placeholder="Enter Employment Type" [(ngModel)]="job.employmentType">
+    </div>
+    <div class="form-group">
+      <label for="industryType">Industry Type</label>
+      <input type="text" class="form-control" id="industryType" name="industryType" placeholder="Enter Industry Type"  [(ngModel)]="job.industryType">
+    </div>
+    <div class="form-group">
+      <label for="searchKeyword">Search Keyword(s)</label>
+      <input type="text" class="form-control" id="searchKeyword" name="searchKeyword" placeholder="Enter Search Keywords" [(ngModel)]="job.searchKeyword">
+    </div>
+    <div class="form-group">
+      <label for="jobDescription">Job Description</label>
+      <textarea rows="5" class="form-control" id="jobDescription" name="jobDescription" placeholder="Enter Job Description"  [(ngModel)]="job.jobDescription"></textarea>
+    </div>
+    <button type="submit" class="btn btn-light">Add</button>
+  </form>
+</div>
+</div>
+</div>
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0);" class="closebtn" (click)="closeNav()">&times;</a>
+  <a routerLink="/admin" href="javascript:void(0);">All Jobs</a>
+  <a routerLink="/admin/add-jobs" href="javascript:void(0);">Add Jobs</a>
+</div>
+<br>

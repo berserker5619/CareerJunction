@@ -1,0 +1,17 @@
+.card{
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 2%;
+}
+
+@media screen and (max-width:769px){
+    .card{
+        width: 90%;
+        margin-left: 5%;
+        margin-top: 2%;
+    }
+    #main {
+        transition: margin-left .5s; /* If you want a transition effect */
+         padding: 5px;
+      }
+    }

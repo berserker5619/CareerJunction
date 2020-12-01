@@ -1,0 +1,18 @@
+<div class="bgImg">
+    <br>
+<div class="login-form" style="margin-left: 35%;margin-top: 5%;">
+    <form>
+        <h2 class="text-center">Admin Login</h2>       
+        <div class="form-group">
+            <input type="text" name="email" [(ngModel)]="email" class="form-control" placeholder="Email" required="required">
+        </div>
+        <div class="form-group">
+            <input type="password" name="password" [(ngModel)]="password" class="form-control" placeholder="Password" required="required">
+        </div>
+        <div class="form-group">
+            <button type="submit" (click)="adminLogin()" class="btn btn-secondary btn-block">Log in</button>
+        </div>
+    </form>
+</div>
+<br>
+</div>

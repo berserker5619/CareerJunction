@@ -1,0 +1,152 @@
+
+<div class="bgImg">
+  <br>
+<div class="row" style="margin-left: 20%;">
+<div class="col-7" style="margin-top: 5%;">
+<div class="row" style="margin-left: 3%;">
+  <img class="col-2 p-0" height="65px" src="../../assets/cjlogo.png">
+  <div class="col"><h1 style="font-family: 'Carter One';color:whitesmoke">Career Junction</h1></div>
+</div>
+<br>
+<br>
+<!--search-->
+<section class="search-sec">
+          <div class="row">
+                      <div class="col-lg-4 col-md-3 col-sm-12 p-0">
+                          <input type="text" [(ngModel)]="skill" id="skill" class="form-control search-slt" placeholder="Skill">
+                      </div>
+                      <div class="col-lg-4 col-md-3 col-sm-12 p-0">
+                          <input type="text" [(ngModel)]="location" id="location" class="form-control search-slt" placeholder="Location">
+                      </div>
+                      <div class="col-lg-4 col-md-3 col-sm-12 p-0">
+                          <button type="button" (click)="search()" class="btn btn-primary btn-lg">Search</button>
+                      </div>
+          </div>
+</section>
+
+</div>
+<!--Login form-->
+<div class="col-2">
+<div class="login-form" *ngIf="!isUserLoggedIn">
+  <form>
+      <h2 class="text-center">Login</h2>       
+      <div class="form-group">
+          <input type="text" name="email" class="form-control" [(ngModel)]="email" placeholder="Email" required="required">
+      </div>
+      <div class="form-group">
+          <input type="password" name="password" class="form-control" [(ngModel)]="password" placeholder="Password" required="required">
+      </div>
+      <div class="form-group">
+          <button (click)="login()" class="btn btn-secondary btn-block"><i class="fi-xtluxl-sign-in-thin"></i>Log in</button>
+      </div>
+      <p class="text-center">Create an Account:<a [routerLink]="['/register/']+'fresher'">Fresher</a>/<a [routerLink]="['/register/']+'experienced'">Experienced</a></p>
+  </form>
+</div>
+</div>
+</div>
+<br>
+<!-- Hot Jobs Carousel-->	  
+      <div class="container cta-100 ">
+        <div class="container">
+          <h3 class="text-center" style="font-family: 'Bangers'">&#9734;Hot Jobs&#9734;</h3>
+          <div class="row blog">
+            <div class="col-md-12">
+              <div id="blogCarousel" class="carousel slide container-blog" data-ride="carousel">
+                <ol class="carousel-indicators">
+                  <li data-target="#blogCarousel" data-slide-to="0" class="active"></li>
+                  <li data-target="#blogCarousel" data-slide-to="1"></li>
+                </ol>
+                <!-- Carousel items -->
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <div class="row">
+                      <div class="col-md-4" *ngFor="let job of jobs;let count=index">
+                        <div class="item-box-blog" *ngIf="count<3">
+                          <div class="item-box-blog-body">
+                            <div class="card-header bg-dark"><a [routerLink]="['/job-details/'+job._id]"><strong>{{job.jobTitle}}</strong></a></div>
+                            <ul class="list-group list-group-flush">
+                              <li class="list-group-item"><strong>Company: </strong>{{job.companyName}}</li>
+                              <li class="list-group-item"><strong>Salary: </strong>{{job.salaryPackage|currency:'INR':true:'2.0'}}/Annum</li>
+                              <li class="list-group-item"><strong>Location: </strong>{{job.location}}</li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!--.row-->
+                    </div>
+                  
+                    <div class="carousel-item">
+                        <div class="row">
+                          <div class="col-md-4" *ngFor="let job of jobs;let count=index">
+                              <div *ngIf="count>=3">
+                                <div class="item-box-blog" *ngIf="count<=5">
+                                    <div class="item-box-blog-body">
+                                      <div class="card-header bg-dark"><a [routerLink]="['/job-details/'+job._id]"><strong>{{job.jobTitle}}</strong></a></div>
+                                      <ul class="list-group list-group-flush">
+                                        <li class="list-group-item"><strong>Company: </strong>{{job.companyName}}</li>
+                                        <li class="list-group-item"><strong>Salary: </strong>{{job.salaryPackage|currency:'INR':true:'2.0'}}/Annum</li>
+                                        <li class="list-group-item"><strong>Location: </strong>{{job.location}}</li>
+                                      </ul>
+                                    </div>         
+                                 </div>
+                               </div>
+                          </div>
+                        </div>
+                        <!--.row-->
+                    </div>          
+                </div>
+          </div>
+        </div>
+      </div>
+</div>
+</div>
+
+<!-- Company logo carousel-->
+<div class="container cta-100">
+    <h3 style="font-family: 'Vast Shadow';text-align: center;color: whitesmoke;">Search By Company</h3>
+    <div id="recipeCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner" role="listbox">
+            <div class="carousel-item row no-gutters active">
+                <div class="col-2 float-left"><a [routerLink]="['/related-jobs']" [queryParams]="{'company':'amazon'}"><img class="img-fluid" src="../../assets/logo-carousel/Amazon-Logo-Dark.png"></a></div>
+                <div class="col-2 float-left"><a [routerLink]="['/related-jobs']" [queryParams]="{'company':'microsoft'}"><img class="img-fluid" src="../../assets/logo-carousel/microsoft-logo.png"></a></div>
+                <div class="col-2 float-left"><a [routerLink]="['/related-jobs']" [queryParams]="{'company':'zoho'}"><img class="img-fluid" src="../../assets/logo-carousel/zoho-logo.png"></a></div>
+                <div class="col-2 float-left"><a [routerLink]="['/related-jobs']" [queryParams]="{'company':'mahindra'}"><img class="img-fluid" src="../../assets/logo-carousel/tech-mahindra-logo.jpg"></a></div>
+                <div class="col-2 float-left"><a [routerLink]="['/related-jobs']" [queryParams]="{'company':'tcs'}"><img class="img-fluid" src="../../assets/logo-carousel/TCS.png"></a></div>
+                <div class="col-2 float-left"><a [routerLink]="['/related-jobs']" [queryParams]="{'company':'wipro'}"><img class="img-fluid" src="../../assets/logo-carousel/wipro-logo.jpg"></a></div>
+            </div>
+            <div class="carousel-item row no-gutters">
+                <div class="col-2 float-left"><a [routerLink]="['/related-jobs']" [queryParams]="{'company':'ford'}"><img class="img-fluid" src="../../assets/logo-carousel/ford-logo.jpg"></a></div>
+                <div class="col-2 float-left"><a [routerLink]="['/related-jobs']" [queryParams]="{'company':'philips'}"><img class="img-fluid" src="../../assets/logo-carousel/Philips-logo.jpg"></a></div>
+                <div class="col-2 float-left"><a [routerLink]="['/related-jobs']" [queryParams]="{'company':'cts'}"><img class="img-fluid" src="../../assets/logo-carousel/cognizant-logo.png"></a></div>
+                <div class="col-2 float-left"><a [routerLink]="['/related-jobs']" [queryParams]="{'company':'infosys'}"><img class="img-fluid" src="../../assets/logo-carousel/infosys-logo.png"></a></div>
+                <div class="col-2 float-left"><a [routerLink]="['/related-jobs']" [queryParams]="{'company':'hdfc'}"><img class="img-fluid" src="../../assets/logo-carousel/hdfc-bank-logo.jpg"></a></div>
+                <div class="col-2 float-left"><a [routerLink]="['/related-jobs']" [queryParams]="{'company':'coda'}"><img class="img-fluid" src="../../assets/logo-carousel/coda-global-logo.png"></a></div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<!--Career Tips-->
+<div id="careerTips" class="bg-secondary text-white">
+  <h3 style="text-align: center;">Career Tips</h3>
+<div class="row bg-dark">
+  <div class="col p-0">
+    <ul class="list-group">
+      <li id="list-group-item" class="list-group-item  bg-secondary text-white"><i class="fi-stluxl-check"></i> Build a unique personal brand</li>
+      <li id="list-group-item" class="list-group-item  bg-secondary text-white"><i class="fi-swluxl-times-solid"></i> Search for jobs outside your skill level</li>
+      <li id="list-group-item" class="list-group-item  bg-secondary text-white"><i class="fi-stluxl-check"></i> Get the right people on your support team</li>
+      <li id="list-group-item" class="list-group-item  bg-secondary text-white"><i class="fi-swluxl-times-solid"></i> Forget to customize your resume</li>
+    </ul>
+  </div>
+  <div class="col p-0">
+    <ul class="list-group">
+      <li id="list-group-item" class="list-group-item  bg-secondary text-white"><i class="fi-stluxl-check"></i> Keep your skills and certifications updated</li>
+      <li id="list-group-item" class="list-group-item  bg-secondary text-white"><i class="fi-swluxl-times-solid"></i> Don't allow yourself to get distracted</li>
+      <li id="list-group-item" class="list-group-item  bg-secondary text-white"><i class="fi-stluxl-check"></i> Learn the fundamentals of the industry</li>
+      <li id="list-group-item" class="list-group-item  bg-secondary text-white"><i class="fi-swluxl-times-solid"></i> Assume that pursuing your passion will lead to riches</li>
+    </ul>
+  </div>
+</div>
+</div>
+</div>

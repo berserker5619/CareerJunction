@@ -1,0 +1,204 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<div class="bgImg">
+<br>
+
+<div class="container" >
+<div class="stepwizard">
+    <div class="stepwizard-row setup-panel">
+        <div class="stepwizard-step">
+            <a href="#step-1" type="button" class="btn btn-outline-secondary temp btn-circle">Personal</a>
+        </div>
+        <div class="stepwizard-step">
+            <a href="#step-2" type="button" class="btn btn-outline-secondary btn-circle">Employment</a>
+        </div>
+        <div class="stepwizard-step">
+            <a href="#step-3" type="button" class="btn btn-outline-secondary btn-circle">Eductaion</a>
+        </div>
+    </div>
+</div>
+<br>
+<form role="form">
+    <div class="row setup-content" id="step-1">
+    <div class="form bg-secondary" style="background-color: #faf9f5;">
+                <h3><i class="fi-xnsuxl-user-solid"></i>Personal Details</h3>
+                <div class="form-group">
+                    <label class="control-label"><strong>First Name</strong></label>
+                    <input type="text" name="firstname" #firstname="ngModel" [(ngModel)]="user.firstname" class="form-control" placeholder="Enter First Name"  />
+                    <div *ngIf="user.firstname==''" class="text-light">*First Name is required</div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label"><strong>Last Name</strong></label>
+                    <input type="text" name="lastname" [(ngModel)]="user.lastname" class="form-control" placeholder="Enter Last Name" />
+                    <div *ngIf="user.lastname==''" class="text-light">*Last Name is required</div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label"><strong>Email ID</strong></label>
+                    <input type="email" name="email" [(ngModel)]="user.email" class="form-control" placeholder="Enter Email" />
+                    <div *ngIf="user.email==''" class="text-light">*Email is required</div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label"><strong>Contact Number</strong></label>
+                    <input type="text" name="contactNumber" [(ngModel)]="user.contactNumber" class="form-control" placeholder="Enter Contact Number" />
+                    <div *ngIf="user.contactNumber==''" class="text-light">*Contact Number is required</div>
+                    <div *ngIf="user.contactNumber!='' && (user.contactNumber.length!=10 || user.contactNumber.length>10)" class="text-light">*Contact Number must have 10 digits</div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label"><strong>Password</strong></label>
+                    <input type="text" name="password" [(ngModel)]="user.password" class="form-control" placeholder="Enter Password" />
+                    <div *ngIf="user.password==''" class="text-light">*Password is required</div>
+                    <div *ngIf="user.password!='' && (user.password.length<8)" class="text-light">*Password must have atleast 8 digits</div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label"><strong>Address</strong></label>
+                    <textarea rows="5" name="address" [(ngModel)]="user.address" class="form-control" placeholder="Enter Complete Address" ></textarea>
+                    <div *ngIf="user.address==''" class="text-light">*Address is required</div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label"><strong>Skills</strong></label>
+                    <input type="text" name="skills" [(ngModel)]="user.skills" class="form-control" placeholder="Enter Skills Known" />
+                    <div *ngIf="user.skills==''" class="text-light">*Skills is required</div>
+                </div>
+      <div *ngIf="resmuUploadFlag" class="form-group">
+        <label class="control-label"><strong>Upload Resume:</strong></label>
+        <input id="filebutton"  name="filebutton"  class="input-file"  type="file" 
+         placeholder="filebutton"  (change) ="fileChangeEvent($event)"/>
+         <button class="btn table-secondary" (click)="upload()">Upload</button>
+         <div *ngIf="user.resume==''" class="text-light">*Resume is required</div>
+        </div>
+        <div *ngIf="!resmuUploadFlag">
+            <p><strong>Resume Uploaded</strong></p>
+        </div>
+            <button class="btn btn-primary nextBtn float-right" type="button" >Next</button>
+            <button class="btn btn-success btn-lg" (click)="submit(1)" type="submit">Register</button>
+        </div>
+        </div>
+    <div class="row setup-content" id="step-2">
+        <div class="form bg-secondary">
+                <h3><i class="fi-xnsuxl-user-tie-circle"></i>Employment Details</h3>
+                <div *ngIf="id=='experienced'">
+                <div class="form-group">
+                    <label class="control-label"><strong>Current Employer</strong></label>
+                    <input type="text" name="currentEmployer" [(ngModel)]="user.currentEmployer" class="form-control" placeholder="Enter Current Employer" />
+                    <div *ngIf=" user.currentEmployer==''" class="text-light">*Current Employer is required</div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label"><strong>Current Destination</strong></label>
+                    <input type="text" name="currentDestination" [(ngModel)]="user.currentDestination" class="form-control" placeholder="Enter Current Destination"  />
+                    <div *ngIf=" user.currentDestination==''" class="text-light">*Current Job Destination is required</div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label"><strong>Current Job Description</strong></label>
+                    <textarea rows="4" name="currentJobDescription" [(ngModel)]="user.currentJobDescription" class="form-control" placeholder="Enter Current Job Description" ></textarea>
+                    <div *ngIf=" user.currentJobDescription==''" class="text-light">*Current Job Description is required</div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label"><strong>Experience in Month(s)</strong></label>
+                    <input type="number" name="currentExperience" [(ngModel)]="user.currentExperience" class="form-control" placeholder="0"  />
+                    <div *ngIf=" user.currentExperience==''" class="text-light">*Current Job Experience is required</div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label"><strong>Previous Employer</strong></label>
+                    <input type="text" name="previousEmployer" [(ngModel)]="user.previousEmployer" class="form-control" placeholder="Enter Previous Employer"  />
+                    <div *ngIf=" user.previousEmployer==''" class="text-light">*Previous Employer is required</div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label"><strong>Previous Destination</strong></label>
+                    <input type="text" name="previousDestination" [(ngModel)]="user.previousDestination" class="form-control" placeholder="Enter Previous Destination"  />
+                    <div *ngIf=" user.previousDestination==''" class="text-light">*Previous Job Destination is required</div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label"><strong>Previous Job Description</strong></label>
+                    <textarea rows="4" type="text" name="previousJobDescription" [(ngModel)]="user.previousJobDescription" class="form-control" placeholder="Enter Previous Job Description"></textarea>
+                    <div *ngIf=" user.previousJobDescription==''" class="text-light">*Previous Job Description is required</div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label"><strong>Experience in Month(s)</strong></label>
+                    <input type="number" name="previousExperience" [(ngModel)]="user.previousExperience" class="form-control" placeholder="0"  />
+                    <div *ngIf=" user.previousExperience==''" class="text-light">*Previous Job Description is required</div>
+                </div>
+                <button class="btn btn-primary nextBtn float-right" type="button" >Next</button>
+                <button class="btn btn-success btn-lg" (click)="submit(2)" type="submit">Register</button>
+                </div>
+
+                <div *ngIf="id=='fresher'">
+                    <div class="form-group">
+                        <label class="control-label"><strong>Current Employer</strong></label>
+                        <input type="text" name="currentEmployer" [(ngModel)]="user.currentEmployer" class="form-control" disabled placeholder="Not Available" />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label"><strong>Current Destination</strong></label>
+                        <input type="text" name="currentDestination" [(ngModel)]="user.currentDestination" class="form-control" disabled placeholder="Not Available"  />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label"><strong>Current Job Description</strong></label>
+                        <textarea rows="4" name="currentJobDescription" [(ngModel)]="user.currentJobDescription" class="form-control" disabled placeholder="Not Available" ></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label"><strong>Experiemce in Month(s)</strong></label>
+                        <input type="number" name="currentExperience" [(ngModel)]="user.currentExperience" class="form-control" disabled placeholder="Not Available"  />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label"><strong>Previous Employer</strong></label>
+                        <input type="text" name="previousEmployer" [(ngModel)]="user.previousEmployer" class="form-control" disabled placeholder="Not Available"  />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label"><strong>Previous Destination</strong></label>
+                        <input type="text" name="previousDestination" [(ngModel)]="user.previousDestination" class="form-control" disabled placeholder="Not Available"  />
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label"><strong>Previous Job Description</strong></label>
+                        <textarea rows="4" type="text" name="previousJobDescription" [(ngModel)]="user.previousJobDescription" class="form-control" disabled placeholder="Not Available"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label"><strong>Experience in Month(s)</strong></label>
+                        <input type="number" name="previousExperience" [(ngModel)]="user.previousExperience" class="form-control" disabled placeholder="Not Available"  />
+                    </div>
+                    <button class="btn btn-primary nextBtn float-right" type="button" >Next</button>
+                    <button class="btn btn-success btn-lg" (click)="submit(2)" type="submit">Register</button>
+                    </div>
+            </div>
+    </div>
+    <div class="row setup-content" id="step-3">
+        <div class="form bg-secondary">
+                <h3><i class="fi-xnluxl-building"></i>Education Details</h3>
+                <div class="form-group">
+                    <label class="control-label"><strong>College/University</strong></label>
+                    <input type="text" name="collegeUniversity" [(ngModel)]="user.collegeUniversity" class="form-control" placeholder="Enter name of College/University"  />
+                    <div *ngIf=" user.collegeUniversity==''" class="text-light">*College/University is required</div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label"><strong>College Passed Out Year</strong></label>
+                    <input type="text" name="collegePassedOutYear" [(ngModel)]="user.collegePassedOutYear" class="form-control" placeholder="Enter Passed Out Year"  />
+                    <div *ngIf=" user.collegePassedOutYear==''" class="text-light">*College Passed Out Year is required</div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label"><strong>Graduated School</strong></label>
+                    <input type="text" name="school" [(ngModel)]="user.school" class="form-control" placeholder="Enter Graduated School"  />
+                    <div *ngIf=" user.school==''" class="text-light">*School is required</div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label"><strong>School Passed Out Year</strong></label>
+                    <input type="text" name="schoolPassedOutYear" [(ngModel)]="user.schoolPassedOutYear" class="form-control" placeholder="Enter Passed Out Year"  />
+                    <div *ngIf=" user.schoolPassedOutYear==''" class="text-light">*School PassedOut Year is required</div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label"><strong>Skills/Qualifications</strong></label>
+                    <textarea rows="5" type="text" name="skillsQualifications" [(ngModel)]="user.skillsQualifications" class="form-control" placeholder="Enter Skills/Qualifications"></textarea>
+                    <div *ngIf=" user.skillsQualifications==''" class="text-light">*Skills/Qualifications is required</div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label"><strong>Certifications</strong></label>
+                    <textarea rows="5" type="text" name="certifications" [(ngModel)]="user.certifications" class="form-control" placeholder="Enter Certifications"></textarea>
+                    <div *ngIf=" user.certifications==''" class="text-light">*Certifications is required</div>
+                </div>
+                <button class="btn btn-success btn-lg pull-right" (click)="submit(3)" type="submit">Register</button>
+            </div>
+        </div>
+</form>
+</div>
+<br>
+<br>
+</div>
