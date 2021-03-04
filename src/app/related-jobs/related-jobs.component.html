@@ -2,7 +2,7 @@
 <div id="main">
   <br>
   <div class="card text-center">
-    <div class="row">
+    <div class="row bgImg">
       <div class="col-md-3 mx-max my-4" *ngFor="let job of jobs|jobFilter2:skillSearch:locationSearch:companySearch">
         <div class="card bg-light-gray mb-2">
           <div class="card-header"><a [routerLink]="['/job-details/'+job._id]">{{job.jobTitle}}</a></div>

@@ -9,15 +9,17 @@ export class JobFilter2Pipe implements PipeTransform {
     if(skill=='' && location=='' && company==''){
       return jobs
     }else{
+      if(company!=null){
+        jobs=jobs.filter(job=>job.companyName.toLowerCase().indexOf(company.toLowerCase())!==-1)
+      }
+      else{
       if(skill!=''){
         jobs=jobs.filter(job=>job.skillsRequired.toLowerCase().indexOf(skill.toLowerCase())!==-1)
       }
       if(location!=''){
         jobs=jobs.filter(job=>job.location.toLowerCase().indexOf(location.toLowerCase())!==-1)
       }
-      if(company!=''){
-        jobs=jobs.filter(job=>job.companyName.toLowerCase().indexOf(company.toLowerCase())!==-1)
-      }
+    }
       return jobs
     }
   }
