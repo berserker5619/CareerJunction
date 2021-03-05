@@ -4,6 +4,7 @@
   "main":"server/app.js",
   "scripts": {
     "ng": "ng",
+    "start":"concurrently \"ng serve -o --port 5200\" \"nodemon server/app.js\"",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
